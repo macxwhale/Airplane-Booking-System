@@ -1,19 +1,17 @@
 <?php include ("includes/header.php"); ?>
  
     </div>
+    <hr></hr>
     <div class="col-sm-8 text-left"> 
-
-
-    <hr>
       <div class="alert alert-info">
         <strong>Info!</strong> Below is a list of all users that have access to the system back end. There are two types of users - Administrators and Editors. Administrators have full access to the system. Editors cannot access Reports, Settings, Users.
       </div>
 
       <!-- Trigger the modal with a button -->
-      <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal">
+      <button type="button" class="btn btn-success">
       <span class="glyphicon glyphicon-plus"></span>&nbsp;Add Users</button>
 
-       <div class="btn-group">
+      <div class="btn-group">
           <button type="button" class="btn btn-default">All</button>
           <button type="button" class="btn btn-default">Active</button>
           <button type="button" class="btn btn-default">Inactive</button>
@@ -52,11 +50,7 @@
     </tbody>
   </table>
 
-      
-      <ul class="pager">
-        <li class="previous"><a href="#">Previous</a></li>
-        <li class="next"><a href="#">Next</a></li>
-      </ul>
+  
 
       <hr>
     </div>
@@ -71,9 +65,13 @@
   </div>
 </div>
 
-<footer class="container-fluid text-center">
-  <p>Footer Text</p>
-</footer>
+<?php include ("includes/footer.php"); ?>
+
+
+
+
+
+
 
 <!-- Modal -->
 <div id="myModal" class="modal fade" role="dialog">
@@ -95,6 +93,13 @@
 
   </div>
 </div>
+
+
+
+
+
+
+
 
 
 </body>

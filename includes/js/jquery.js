@@ -5,6 +5,10 @@ jQuery(document).ready(function(){
   });
 });
 
-jQuery(document).ready(function(){
-	jQuery('[data-toggle="tooltip"]').tooltip();
+jQuery( function(){
+    jQuery( "#fromDatepicker" ).datepicker();
 });
+
+jQuery( function(){
+    jQuery( "#toDatepicker" ).datepicker();
+})

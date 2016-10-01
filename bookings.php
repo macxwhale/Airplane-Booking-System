@@ -8,8 +8,9 @@
       </div>
 
       <!-- Trigger the modal with a button -->
-      <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal">
+      <button type="button" class="btn btn-success" data-toggle="#modal" data-target="#myModal">
       <span class="glyphicon glyphicon-plus"></span>&nbsp;Add Booking</button>
+      
 
        <div class="btn-group">
           <button type="button" class="btn btn-default">All</button>

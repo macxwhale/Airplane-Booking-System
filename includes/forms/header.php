@@ -1,9 +1,6 @@
-<?php require_once("sessions.php");?>
-<?php require ("db_connect.php"); ?>
-<?php require ("functions/functions.php"); ?>
-<?php require ("functions/validation_functions.php"); ?>
-
-
+<?php require_once("../sessions.php");?>
+<?php require ("../db_connect.php"); ?>
+<?php require ("../functions/functions.php"); ?>
 <!DOCTYPE html>
 <html lang="en">
 <!-- ###################################################################-->
@@ -14,13 +11,21 @@
 
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
-  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script> 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-  <script src="includes/css/css.css"></script>
-  <script src="includes/js/jquery.js"></script>
-  <script src="includes/js/ajax.js"></script>
  
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script src="../js/jquery.js"></script>
+  <script src="../js/ajax.js"></script>
+
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+  <script type="text/javascript" src="jquery/jquery.timepicker.js"></script>
+  <link rel="stylesheet" type="text/css" href="jquery/jquery.timepicker.css" />
+
+  <script type="text/javascript" src="jquery/lib/bootstrap-datepicker.js"></script>
+  <link rel="stylesheet" type="text/css" href="jquery/lib/bootstrap-datepicker.css" />
+
+
 </head> <!-- End of Head tag-->
 <!-- #################################################################################-->
 <body ng-app="navigation" ng-controller="mainController"> <!-- opening of bidy tag -->
@@ -51,14 +56,4 @@
   </div> <!-- closing of container-fluid dic tag-->
 </nav> <!-- closing of navbar navbar-inverse tag -->
 <!-- #########################################################################################-->
-<div class="container-fluid">     <!-- opening of container-fluid div tag -->
-<!-- #########################################################################################-->
-  <div class="row content" >  <!-- opening of div class row content-->
-  <!-- #########################################################################################-->
-  
-    <div class="col-sm-2 sidenav" >  <!-- opening of class col-sm-2 sidenav-->
-      <ul class="nav nav-pills nav-stacked" >
-  
-    <li ng-repeat="appNav in appNavs"><a href="{{ appNav.link}} "> {{ appNav.name }}</a></li>
-    </ul>      
-  
+<div class="container-fluid"> 

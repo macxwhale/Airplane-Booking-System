@@ -4,99 +4,97 @@
     <hr></hr>
     <div class="col-sm-8 text-left"> 
       <div class="alert alert-info">
-        <strong>Info!</strong> Below is a list of all airplane types. Each airplane you create has to have airplane type defined. Through airplane types you can define the number of seats and the seats map of each bus. This will let customers make bookings and reserve their seats and tickets.
+        <strong>Info!</strong> Below is a list of all airplane types. Through airplane types you can search an Airplane Type and add the number of seats(Premier and Economy class). This will let customers make bookings and reserve their seats and tickets.
       </div>
 
-      <b!-- Trigger the modal with a button -->
-      <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal">
+      <a<!-- Add city button -->
+      <button type="button" class="btn btn-success"> 
       <span class="glyphicon glyphicon-plus"></span>&nbsp;Add Airplane Type</button>
+      <!-- End of city button -->
 
-       <div class="btn-group">
-          <button type="button" class="btn btn-default">All</button>
-          <button type="button" class="btn btn-default">Active</button>
-          <button type="button" class="btn btn-default">Inactive</button>
-      </div>
-
+      <!-- Search form -->
       <form class="navbar-form navbar-right" role="search">
         <div class="form-group input-group">
-          <input type="text" class="form-control" placeholder="Search..">
-          <span class="input-group-btn">
-            <button class="btn btn-default" type="button">
-              <span class="glyphicon glyphicon-search"></span>
-            </button>
-          </span>        
+          <input type="text" class="form-control" placeholder="Search..." onkeyup="showAirplane(this.value)">
+          <span class="input-group-btn"></span>        
         </div>
       </form>
-         
+      <!-- End of search form -->
+<hr>      
+      <p>Suggestions: <span id="txtHint"></span></p>
+<hr>
+<!-- #################################################################################-->
+<!--Inlude the add city form -->
+<?php if(file_exists("includes/forms/add_airplane_type.php")) { require("includes/forms/add_airplane_type.php"); }  ?>
+<!-- #################################################################################-->
+<!-- Sql function to find all cities-->
+<?php $airplane_set = find_all_airplane_types(); ?>
+<!-- #################################################################################-->
+<!-- Scroll bar div tag-->
+    <div style="width: 830px;height: 270px;overflow: scroll;">  
+<!-- #################################################################################-->
+<!-- If statement to check if array $city_set is empty-->    
+    <?php if (is_array($airplane_set) || is_object($airplane_set)) { ?>    
+<!-- #################################################################################-->
   <table class="table table-hover">
     <thead>
       <tr>
-        <th>Name</th>
-        <th>Seat(s)</th>
+        <th>Airplane Type</th>
+        <th>Created On</th>
+        <th>Update On</th>
         <th>Status</th>
-        <th>Actions</th>
       </tr>
     </thead>
-    <tbody>
-
-      <tr class="danger">
-        <td>Boeing</td>
-        <td>301</td>
-        <td>Active/Inactive</td>
-        <td>Edit/Delete</td>
-      </tr>
-
+    <tbody>    
+<!-- #################################################################################-->
+<!-- Foreach loop to echo all data found using the find_all_cities function -->
+  <?php foreach ($airplane_set as $key => $type) { ?>
+        <tr>
+          <?php echo "<td>" . $type["airplane_name"] . "</td>"; ?>
+          <?php echo "<td><em>" . date("M j, Y, g:i a", strtotime($type["created_on"])) . "</em></td>"; ?> 
+          <?php echo "<td><em>" . date("M j, Y, g:i a", strtotime($type["updated_on"])) . "</em></td>"; ?>
+          <?php echo $type["status"] == 1 ? "<td><span class=\"label label-info\">Active</td>" : ""; ?>
+          <?php echo $type["status"] == 0 ? "<td><span class=\"label label-warning\">Inactive</td>" : ""; ?>
+          </tr>   
+  <?php } //End of foreach ($city_set as $key => $city) ?>
+<?php } else { echo "<p class=\"text-muted\">No records found.</p> "; }// End of f (is_array($city_set) || is_object($city_set)) ?>
+<!-- #################################################################################-->
     </tbody>
   </table>
-
-      
-      <ul class="pager">
-        <li class="previous"><a href="#">Previous</a></li>
-        <li class="next"><a href="#">Next</a></li>
-      </ul>
-
-      <hr>
-    </div>
-    <div class="col-sm-2 sidenav">
+<!-- #################################################################################-->
+</div>       
+</div> <!-- end of <div class="col-sm-8 text-left"> -->   
+<!-- #################################################################################-->
+    <div class="col-sm-2 sidenav"> <!-- <div class="col-sm-2 sidenav"> -->
+<!-- #################################################################################-->    
       <div class="well">
         <p>ADS</p>
       </div>
+
       <div class="well">
         <p>ADS</p>
       </div>
-    </div>
-  </div>
+
+      <div class="well">
+        <p>ADS</p>
+      </div>
+
+      <div class="well">
+        <p>ADS</p>
+      </div>
+
+      <div class="well">
+        <p>ADS</p>
+      </div> 
+<!-- #################################################################################-->   
+    </div> <!-- End of <div class="col-sm-2 sidenav"> -->
+<!-- #################################################################################-->
 </div>
-
-<?php include ("includes/footer.php"); ?>
-
-
-
-<!-- Modal -->
-<div id="myModal" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Modal Header</h4>
-      </div>
-      <div class="modal-body">
-        <p>Some text in the modal.</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-
-  </div>
 </div>
-
-
-
-
-
+<!-- #################################################################################-->
+<?php include ( "includes/footer.php" ); ?>
 
 </body>
 </html>
+
+
